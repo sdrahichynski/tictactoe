@@ -1,0 +1,47 @@
+.wrapper {
+  @apply flex flex-col w-full h-full;
+}
+
+.players {
+  @apply flex justify-around;
+}
+
+.player {
+    @apply m-4 pl-10 relative
+}
+
+.field {
+    @apply flex flex-col flex-1 justify-center items-center;
+
+    .row {
+        @apply  flex flex-row;
+    }
+
+    .cell {
+        @apply text-4xl cursor-pointer m-1 w-20 h-20 border-2 border-orange-200 rounded-md flex justify-center items-center;
+    }
+}
+
+.winnerCell {
+  position: relative;
+
+  &:before,
+  &:after {
+    @apply bg-rose-500;
+    content: "";
+    width: 6px;
+    height: 60%;
+    position: absolute;
+    transform-origin: center center;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  &:before {
+    transform: translate(-50%, -50%) rotateZ(-45deg);
+  }
+  &:after {
+    transform: translate(-50%, -50%) rotateZ(45deg);
+  }
+}
